@@ -1,0 +1,12 @@
+t1 = 0
+t2 = 1
+L1: if  t2 > 5 goto L4
+scanf("%d", &t3)
+if t3 >= 0 goto L2
+goto L4
+L2: t1 = t1 + t3
+if t1 <= 10 goto L3
+goto L1
+L3: t2 = t2 + 1
+goto L1
+L4: printf
