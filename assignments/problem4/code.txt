@@ -1,0 +1,18 @@
+Read A;
+LSR = 1;
+RSR = A;
+SR = (LSR+RSR)/2;
+Repeat{
+    T=SR*SR
+    if(T>A)
+        RSR = SR;
+    else if (T<A)
+        LSR = SR;
+    else {
+        LSR = SR;
+        RSR = SR;
+    }
+    SR = (LSR+RSR)/2;
+    Until (LSR != RSR);
+    Print SR;
+}
