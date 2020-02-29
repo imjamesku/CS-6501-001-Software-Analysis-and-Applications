@@ -1,0 +1,15 @@
+1. sum = 0;
+2. k = 4;
+3. i = 1;
+4. while (i <= 5) {
+5.     scanf("%d",&j);
+6.     if (j < 0)
+7.         break;
+8.     sum = sum + j;
+9.     k = j + i;
+10.    if (sum > 10)
+11.        continue;
+12.    i = i + 1;
+13. }
+14. printf("i is %d", i, “k is%d”,k);
+15. printf("sum is %d", sum);
