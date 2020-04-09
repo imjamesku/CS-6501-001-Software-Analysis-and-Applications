@@ -1,0 +1,14 @@
+*.ktest
+buggy-regexp1
+buggy-regexp2
+get-sign
+regexp
+test-instr
+id:*
+warnings.txt
+info
+klee-out-*
+AFL
+KLEE
+seeds
+step*/

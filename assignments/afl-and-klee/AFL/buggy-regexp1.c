@@ -21,8 +21,14 @@ static int matchstar(int c, char *re, char *text) {
 static int matchhere(char *re, char *text) {
     if (re[0] == '\0' && text[0] == '\0')
         return 1;
-    if (re[1] == '*')
+    if (re[0] == '\0') {
+        return 0;
+    }
+
+    if (re[1] == '*') {
+        abort();
         return matchstar(re[0], re + 2, text);
+    }
     if (re[0] == '$' && re[1] == '\0')
         return *text == '\0';
     if (*text != '\0' && (re[0] == '.' || re[0] == *text))

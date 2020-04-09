@@ -9,13 +9,16 @@
  */
 
 #include "klee/klee.h"
+#include <stdlib.h>
 
 static int matchhere(char *, char *);
 
 static int matchstar(int c, char *re, char *text) {
     do {
-        if (matchhere(re, text))
+        if (matchhere(re, text)) {
+            abort();
             return 1;
+        }
     } while (*text != '\0' && (*text++ == c || c == '.'));
     return 0;
 }
@@ -29,7 +32,7 @@ static int matchhere(char *re, char *text) {
         return matchstar(re[0], re + 2, text);
     if (re[0] == '$' && re[1] == '\0')
         return *text == '\0';
-    if (*text != '\0' && (re[0] == *text))
+    if (*text != '\0' && (re[0] == '.' || re[0] == *text))
         return matchhere(re + 1, text + 1);
     return 0;
 }
