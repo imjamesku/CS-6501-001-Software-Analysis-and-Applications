@@ -1,0 +1,59 @@
+digraph "MVICFG" {
+	label="MVICFG";
+/* Generating Nodes */
+	subgraph cluster_1 {
+		label="main";
+		"23" [label="0::Entry::main"];
+		"2" [label="0::  %1 = alloca i32, align 4"];
+		"3" [label="0::  %2 = alloca float, align 4"];
+		"4" [label="0::  store i32 0, i32* %1, align 4"];
+		"5" [label="0::  call void @llvm.dbg.declare(metadata float* %2, metadata !13, metadata !DIExpression()), !dbg !15"];
+		"6" [label="0::  %3 = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i32 0, i32 0), float* %2), !dbg !16"];
+		"7" [label="0::  %4 = load float, float* %2, align 4, !dbg !17"];
+		"8" [label="0::  %5 = fcmp oge float %4, 0.000000e+00, !dbg !19"];
+		"9" [label="0::  br i1 %5, label %6, label %12, !dbg !20"];
+		"10" [label="0::  %7 = load float, float* %2, align 4, !dbg !21"];
+		"11" [label="0::  %8 = fpext float %7 to double, !dbg !21"];
+		"12" [label="0::  %9 = load float, float* %2, align 4, !dbg !23"];
+		"13" [label="0::  %10 = fpext float %9 to double, !dbg !23"];
+		"14" [label="0::  %11 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([32 x i8], [32 x i8]* @.str.1, i32 0, i32 0), double %8, double %10), !dbg !24"];
+		"15" [label="0::  br label %18, !dbg !25"];
+		"16" [label="0::  %13 = load float, float* %2, align 4, !dbg !26"];
+		"17" [label="0::  %14 = fpext float %13 to double, !dbg !26"];
+		"18" [label="0::  %15 = load float, float* %2, align 4, !dbg !28"];
+		"19" [label="0::  %16 = fpext float %15 to double, !dbg !28"];
+		"20" [label="0::  %17 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([32 x i8], [32 x i8]* @.str.1, i32 0, i32 0), double %14, double %16), !dbg !29"];
+		"21" [label="0::  br label %18"];
+		"22" [label="0::  ret i32 0, !dbg !30"];
+		"24" [label="0::Exit::main"];
+	}
+	subgraph cluster_28 {
+		label="External_Node_Func";
+		"29" [label="4294967294::External_Node"];
+	}
+
+/* Generating Edges */
+		"2" -> "3" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"3" -> "4" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"4" -> "5" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"7" -> "8" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"8" -> "9" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"10" -> "11" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"11" -> "12" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"12" -> "13" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"13" -> "14" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"16" -> "17" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"17" -> "18" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"18" -> "19" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"19" -> "20" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"20" -> "21" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"23" -> "2" [arrowhead = normal, penwidth = 1.0, color = pink, label="V1::Virtual"];
+		"22" -> "24" [arrowhead = normal, penwidth = 1.0, color = pink, label="V1::Virtual"];
+		"5" -> "6" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"6" -> "7" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"9" -> "10" [arrowhead = dot, penwidth = 1.0, color = black, label="V1::Branch"];
+		"9" -> "16" [arrowhead = dot, penwidth = 1.0, color = black, label="V1::Branch"];
+		"14" -> "15" [arrowhead = normal, penwidth = 1.0, color = black, label="V1"];
+		"15" -> "22" [arrowhead = dot, penwidth = 1.0, color = black, label="V1::Branch"];
+		"21" -> "22" [arrowhead = dot, penwidth = 1.0, color = black, label="V1::Branch"];
+}
